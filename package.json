@@ -1,9 +1,10 @@
 {
   "name": "markdown-publish",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "type": "module",
   "main": "index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
