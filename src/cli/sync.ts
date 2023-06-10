@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "path";
 import { nanoid } from "nanoid";
 
-async function sync() {
+export async function sync() {
   try {
     const files = await fs.readdir(path.resolve(__dirname, "../vault"));
     await Promise.all(
@@ -97,11 +97,4 @@ async function copy(fileName: string, srcDir: string, targetDir: string) {
     path.resolve(srcDir, fileName),
     path.resolve(targetDir, newFileName)
   );
-}
-
-try {
-  sync();
-} catch (e: any) {
-  console.log(e.message);
-  process.exit(1);
 }

@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-require("../dist/cli/sync.cjs")();
+import { sync } from "../dist/cli/sync";
+
+sync();
