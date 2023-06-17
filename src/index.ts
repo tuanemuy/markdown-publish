@@ -35,7 +35,7 @@ export async function getFullPost(id: string) {
         '<div class="table">\n<table>\n' + header + body + "</table>\n</div>\n"
       );
     };
-    marked.setOptions({ renderer });
+    marked.setOptions({ renderer, mangle: false, headerIds: false });
     const content = DOMPurify.sanitize(marked.parse(mdContent));
 
     return FullPost.generate({

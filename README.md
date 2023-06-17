@@ -14,10 +14,20 @@ npm install markdown-publish
 
 If you want to publish `test.md`, rename it to `test@.md`. Put "@" just before the extension.
 
-### 3. Copy local files to this project
+### 3. Copy local files to your project
 
 ```bash
-npm run sync
+npm run mp-sync
+```
+
+### 4. Read files from your project
+
+```bash
+// Get all files as Post.
+const posts = getPosts();
+
+// Get a file as FullPost.
+const post = getPost("postId");
 ```
 
 ## License

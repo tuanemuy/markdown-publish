@@ -4,14 +4,14 @@ import { nanoid } from "nanoid";
 
 export async function sync() {
   try {
-    const files = await fs.readdir(path.resolve(__dirname, "../vault"));
+    const files = await fs.readdir(path.resolve(process.cwd(), "vault"));
     await Promise.all(
       files
         .filter((file) => {
           return file !== ".gitkeep";
         })
         .map((file) => {
-          fs.unlink(path.resolve(__dirname, "../vault", file))
+          fs.unlink(path.resolve(process.cwd(), "vault", file))
             .then(() => {
               console.log(`${file} has been deleted`);
             })
@@ -57,7 +57,7 @@ export async function sync() {
 
   try {
     const copies = renamedFilesToSync.map((file) => {
-      copy(file, dir, path.resolve(__dirname, "../vault"))
+      copy(file, dir, path.resolve(process.cwd(), "vault"))
         .then(() => {
           console.log(`${file} has been copied`);
         })
